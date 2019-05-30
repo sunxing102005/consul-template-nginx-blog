@@ -56,3 +56,10 @@ services:
             SERVICE_8365_NAME: service-admin
         ports:
             - 8365:8365
+    lb:
+        image: daocloud.io/sunxing102005/consul-template-nginx-blog
+        hostname: lb
+        links:
+            - consulserver:consul
+        ports:
+            - 80:80
