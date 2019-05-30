@@ -1,4 +1,3 @@
-# 管理镜像的docker-compose 配置文件(daocloud使用，暂时放在这个项目中)
 version: "2.0"
 services:
     consulserver:
@@ -41,13 +40,13 @@ services:
             - /var/run/docker.sock:/tmp/docker.sock
         command: -internal consul://consulserver:8500
     serviceweb:
-        image: daocloud.io/sunxing102005/self_blog:latest
+        image: daocloud.io/sunxing102005/self-blog:latest
         depends_on:
             - consulserver
         environment:
             SERVICE_8362_NAME: service-web
         ports:
-            - 8362:8362
+            - "8362"
     serviceadmin:
         image: daocloud.io/sunxing102005/self-blog-backend:latest
         depends_on:
@@ -55,7 +54,7 @@ services:
         environment:
             SERVICE_8365_NAME: service-admin
         ports:
-            - 8365:8365
+            - "8365"
     lb:
         image: daocloud.io/sunxing102005/consul-template-nginx-blog:latest
         hostname: lb
