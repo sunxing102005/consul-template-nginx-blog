@@ -1,0 +1,6 @@
+#!/bin/sh
+# 启动consul-template,指定consul地址
+# consul变化后，根据模板 nginx.conf ，生成nigix配置文件并reload
+exec consul-template \
+     -consul-addr=consul:8500 \
+     -template "/etc/consul-templates/nginx.conf:/etc/nginx/conf.d/app.conf:nginx -s reload"

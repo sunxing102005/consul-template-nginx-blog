@@ -1,0 +1,5 @@
+#!/bin/sh
+# 启动nginx
+# daemon off 关闭守卫进程,保证nginx前台运行
+nginx -c /etc/nginx/nginx.conf -t && \
+  nginx -c /etc/nginx/nginx.conf -g "daemon off;"
