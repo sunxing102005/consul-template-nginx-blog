@@ -17,7 +17,7 @@ ADD consul-template.service /etc/service/consul-template/run
 RUN chmod a+x /etc/service/consul-template/run
 
 RUN rm -v /etc/nginx/conf.d/*
-ADD nginx.conf /etc/consul-templates/nginx.conf
+ADD nginx.conf.ctmpl /etc/consul-templates/nginx.conf
 # 使用runit ,当 runsvdir在/etc/service/目录中发现新的配置时，
 # 启动runsv进程来执行和监控/etc/service下的run脚本
 CMD ["/usr/bin/runsvdir", "/etc/service"]
