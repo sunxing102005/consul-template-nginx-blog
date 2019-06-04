@@ -39,44 +39,18 @@ services:
         volumes:
             - /var/run/docker.sock:/tmp/docker.sock
         command: -internal consul://consulserver:8500
-    serviceadmin1:
+    serviceweb:
         image: daocloud.io/sunxing102005/self-blog:latest
-        depends_on:
-            - consulserver
         environment:
-            SERVICE_8362_NAME: service-admin
+            SERVICE_8362_NAME: service-web
         ports:
             - "8362"
-    serviceadmin2:
-        image: daocloud.io/sunxing102005/self-blog:latest
+    serviceadmin:
+        image: daocloud.io/sunxing102005/self-blog-backend:latest
         depends_on:
             - consulserver
         environment:
-            SERVICE_8362_NAME: service-admin
-        ports:
-            - "8362"
-    serviceadmin3:
-        image: daocloud.io/sunxing102005/self-blog:latest
-        depends_on:
-            - consulserver
-        environment:
-            SERVICE_8362_NAME: service-admin
-        ports:
-            - "8362"
-    serviceweb1:
-        image: daocloud.io/sunxing102005/self-blog-fontend:latest
-        depends_on:
-            - consulserver
-        environment:
-            SERVICE_8365_NAME: service-web
-        ports:
-            - "8365"
-    serviceweb2:
-        image: daocloud.io/sunxing102005/self-blog-fontend:latest
-        depends_on:
-            - consulserver
-        environment:
-            SERVICE_8365_NAME: service-web
+            SERVICE_8365_NAME: service-admin
         ports:
             - "8365"
     lb:
