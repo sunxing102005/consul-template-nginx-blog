@@ -46,6 +46,7 @@ services:
         environment:
             SERVICE_8362_NAME: service-admin
         ports:
+            - "3002:3002"
             - "8362"
     serviceadmin2:
         image: daocloud.io/sunxing102005/self-blog:latest
@@ -54,6 +55,7 @@ services:
         environment:
             SERVICE_8362_NAME: service-admin
         ports:
+            - 3002:3002
             - "8362"
     serviceadmin3:
         image: daocloud.io/sunxing102005/self-blog:latest
@@ -62,6 +64,7 @@ services:
         environment:
             SERVICE_8362_NAME: service-admin
         ports:
+            - 3002:3002
             - "8362"
     serviceweb1:
         image: daocloud.io/sunxing102005/self-blog-fontend:latest
