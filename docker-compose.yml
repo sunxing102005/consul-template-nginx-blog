@@ -40,7 +40,7 @@ services:
             - /var/run/docker.sock:/tmp/docker.sock
         command: -internal consul://consulserver:8500
     serviceadmin1:
-        image: daocloud.io/sunxing102005/self-blog:latest
+        image: daocloud.io/sunxing102005/self-blog-backend:latest
         depends_on:
             - consulserver
         environment:
@@ -55,6 +55,7 @@ services:
         environment:
             SERVICE_8365_NAME: service-web
         ports:
+            - 3005:3005
             - "8365"
     lb:
         image: daocloud.io/sunxing102005/consul-template-nginx-blog:latest
